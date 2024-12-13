@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Face Generator</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+        <style>body{background-color: rgb(195, 195, 195);}</style>
+    </head>
+<body>
+
+<h1>Face Generator</h1>
+<h2>Face Generator - Until you find the ideal face</h2>
+<p>Until you find the ideal face, press the keys to change the colors and move around your cursor to find the face you like</p>
+<script>
+      let meh;
+  let r, g, b;
+  
+  r = g = 0
+  b = 0
+
+  function setup() {
+  createCanvas(400, 400);
+  frameRate(1)
+
+}
+
+function draw() {
+  random(0, 255)
+  
+ 
+  textSize(120)
+  textAlign(CENTER,CENTER)
+  
+  push()
+  noStroke()
+  rectMode(CENTER)
+  fill(r,g,b, 100)
+  meh = (mouseX, mouseY)/2
+  circle(mouseX, mouseY, meh)
+  pop()
+  
+  //eyes
+  push()
+  fill('white')
+  meh = (mouseX, mouseY)/5
+   circle(mouseX - 10,mouseY,random(5, 30))
+  circle(mouseX,mouseY,random(5, 30))
+  pop()
+  
+  //eyeballs
+  push()
+  fill('black')
+  circle(mouseX - 10,mouseY,random(2, 10))
+  circle(mouseX,mouseY,random(2, 10))
+  pop()
+  
+  //mouth
+  push()
+  fill('pink')
+  ellipse(mouseX,mouseY + random(10, 40) ,random(10,30) , random(10, 20))
+  pop()
+  
+  
+  push()
+  
+  pop()
+  
+}
+
+function keyPressed () {
+  r = random(0, 255)
+  g = random(0, 255)
+  b = random(0, 255)
+}
+
+function mousePressed(){
+  background('white')
+  
+}
+
+
+</script>
+</body>
+</html>

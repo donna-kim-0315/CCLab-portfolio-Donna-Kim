@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exquisite corpse</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+        <style>body{background-color: rgb(239, 216, 84);}</style>
+    </head>
+<body>
+
+<h1>Exquisite corpse</h1>
+<h2>Exquisite corpse - A mysterious creature's corpse</h2>
+<p>This corpse has the head from Donna, Body from Nova, and Legs from Selina J</p>
+<script>
+    function setup() {
+  createCanvas(400, 600);
+}
+
+function draw() {
+  background(220);
+  
+   push()
+  fill('yellow')
+  circle(200, 100, 100) // head
+  fill('black')
+  circle(170, 80, 10) // left eye
+  circle(210,80, 10) // right eye
+  fill('red')
+  ellipse(200,120, 20, 40) // mouth
+  pop()
+  
+  push()
+  fill('#fcd6bd')
+  rect(180, 150, 40, 25)//neck
+  rect(150, 175, 100, 125)//body
+  rect(115, 175, 30, 125)//left arm
+  rect(255, 175, 30, 125)//right arm
+  fill('brown')
+  circle(170, 220, 3) //left nipple
+  circle(230, 220, 3) //right nipple
+  pop()
+  
+  push()
+  fill('blue')
+  //quad(x1, y1, x2, y2, x3, y3, x4, y4) // how to make trapezoid shapes
+  quad(250, 300, 150, 300, 70, 400, 310, 400)
+  fill('#fcdf03')
+  rect(150, 400, 40, 180)//left leg
+  rect(200, 400, 40, 180)//right leg
+  fill('brown')
+  rect(150, 550, 40, 30)//left foot
+  rect(200, 550, 40, 30)//right foot
+  textSize(30)
+  text('B', 150, 480)
+  rotate(PI)
+  text('B', -240, -500)
+  text('B', -240, -420)
+   text('B', -190, -420)
+  pop()
+}
+</script>
+</body>
+</html>

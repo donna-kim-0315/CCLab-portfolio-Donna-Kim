@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Data portrait</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+        <style>body{background-color: rgb(202, 166, 74);}</style>
+    </head>
+<body>
+
+<h1>Data portrait</h1>
+<h2>Data portrait - How many times Donna says BOOTY</h2>
+<p>This data portrait depicts how many times Donna said BOOTY for the week. But it was an endless loop.</p>
+<script>
+    let numBooty = 100; // Number of booty
+let radius = 150;      // Radius of the circular path
+let angleOffset = 0;   // To animate the rotation
+
+let emoji_array = ['POOP', 'FART', '💩', '💨', '🍏']
+let counter = 0;
+let lastUpdateTime = 0;
+
+function setup() {
+  createCanvas(400, 400);
+  rectMode(CENTER);
+}
+
+function draw() {
+       if (mouseY <130) {
+    background('#b87e02')
+  }
+  
+  else if (mouseY<260 && mouseX>130) {
+    background('#996800')
+  }
+  
+  else if (mouseY<400 && mouseX>260) {
+    background('#613627')
+  }
+  
+  let interval =  map(mouseX, 0, width, 100, 1000)
+  textAlign(CENTER, CENTER)
+  textSize(80)
+  text(emoji_array[counter], width/2, height/2)
+  
+  if (millis() - lastUpdateTime > interval)
+ {
+
+  counter++
+    if(counter==emoji_array.length){
+    counter = 0
+  }
+   lastUpdateTime = millis();
+ }
+  
+  translate(width / 2, height / 2);
+  
+  // Incrementally increase angleOffset to animate rotation (from ChatGPT)
+  angleOffset += 0.02;
+  
+  // Loop to draw multiple rectangles in a circular pattern
+  for (let i = 0; i < numBooty; i++) {
+    // Calculate angle for each rectangle
+    let angle = map(i, 0, numBooty, 0, TWO_PI) + angleOffset;
+    
+    // Calculate x and y positions using cos() and sin() for circular motion
+    let x = radius * cos(angle);
+    let y = radius * sin(angle);
+    
+  
+    push();
+
+    translate(x, y);
+    
+    // Rotate the rectangle by the angle plus an additional rotation
+    rotate(angle + angleOffset);
+    stroke('orange')
+    fill(255, 222, 140);
+    circle(0, 80, 50);
+    circle(30, 80, 50);
+    
+    pop();
+  
+    push()
+    translate(x, y);
+    rotate(angle + angleOffset);
+    textSize(50)
+    text('💩',100, 100)
+    pop()
+    
+     push()
+    translate(x, y);
+    rotate(angle + angleOffset);
+    textSize(20)
+    text('💨',200, 200)
+    pop()
+    
+
+  }
+}
+</script>
+</body>
+</html>

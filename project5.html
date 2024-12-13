@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Optical illusion</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+        <style>body{background-color: rgb(173, 157, 255);}</style>
+    </head>
+<body>
+
+<h1>Optical illusion</h1>
+<h2>Optical illusion - An illusion hypnotizing you wih colorful loops</h2>
+<p>This optical illusion makes you hypnotized with its loops</p>
+<script>
+    function setup() {
+  createCanvas(400, 400);
+}
+
+let stroke_val = 5
+
+function draw() {
+  background(220);
+  
+  push()
+  for (let x = 0; x < 11; x++){
+    for (let y = 0; y < 11; y++){
+      fill('yellow')
+      circle(x*40, y*40, 40)
+    }
+    if( mouseX > 100 && mouseX <200 &&mouseY > 100 && mouseY < 200){
+      background('red')
+    fill('red')
+  }
+    pop()
+    
+    push()
+      for (let x = 0; x < 11; x++){
+    for (let y = 0; y < 11; y++){
+      fill('green')
+      circle(x*40, y*40, 20)
+    }
+   pop()
+        
+            push()
+      for (let x = 0; x < 11; x++){
+    for (let y = 0; y < 11; y++){
+      fill('blue')
+      circle(x*50, y*50, 30)
+    }
+      //   
+  strokeWeight(stroke_val)
+  circle(width/2, height/2, 10)
+  pop()
+  if (frameCount % 15 == 0){
+    stroke_val += 1
+  }
+  if (stroke_val >= 60){
+    stroke_val = 10
+  }
+   //
+        
+
+  }
+  
+    
+    
+  blendMode(DIFFERENCE);
+  ellipse(mouseX, mouseY, 200, 200)
+        push()
+        fill('white')
+        textSize(28)
+        pop()
+  blendMode(BLEND)
+  }
+}
+}
+</script>
+</body>
+</html>

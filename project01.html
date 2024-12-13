@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost-n-found</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+  <style>body{background-color: rgb(206, 140, 140);}</style>
+</head>
+
+<body>
+
+    <h1>Lost-n-found</h1>
+    <h2>Cindy's ballcap</h2>
+    <p>Cindy lost her ballcap. So I made the sketch for her.<br>It is a maroon-colored baseball cap with a curved bill and a white mesh back.<br>The front of the cap features a rectangular patch with an illustration of Harvard University.</p>
+
+  <script>
+    function setup() {
+      video = createCapture(VIDEO);
+  createCanvas(400, 400);
+    video.hide();
+    }
+
+    function draw() {
+        image(video, 0,0);
+  
+  push()
+  fill('maroon')
+    rotate(PI)
+  arc(-200, -200, 240, 240, 0,PI);
+  pop()
+  
+  push()
+fill('blue')
+  noStroke()
+  rect(100, 130, 160, 70)
+  pop()
+  
+    push()
+fill('orange')
+  noStroke()
+  rect(100, 140, 160, 60)
+  pop()
+  
+      push()
+fill('red')
+  noStroke()
+  rect(100, 150, 160, 50)
+  pop()
+  
+        push()
+fill('black')
+  noStroke()
+  rect(100, 160, 160, 40)
+  pop()
+  
+  push()
+  fill('white')
+  rotate(PI+QUARTER_PI)
+  arc(-290,90, 160, 60, 0,PI);
+  pop()
+  
+  push()
+  fill('white')
+  textSize(24)
+  textStyle(BOLD)
+  text('HARVARD', 120, 185);
+  pop()
+  
+  push()
+  fill('maroon')
+   ellipse(150, 200, 240, 30);
+  pop()
+
+  push()
+setLineDash([10, 10]); //longer stitches
+  noFill()
+  stroke('white')
+  arc(150, 200, 200, 20, 0, 110)
+  pop()
+  
+      push()
+  fill('maroon')
+   ellipse(200, 80, 30, 10);
+  pop()
+    }
+    function setLineDash(list) {
+  drawingContext.setLineDash(list);
+}
+  </script>
+
+</body>
+</html>
